@@ -78,7 +78,7 @@ function initSheetPengaturan() {
       'Raihan, S.S., M.Hum., Gr', 
       '002.08.23', 
       'Mataram, 28 September 2026', 
-      'Jl. TGH. Muh. Rais, Lingkar Selatan – Mataram', 
+      'Jl. TGH. Muh. Rais, Lingkar Selatan â€“ Mataram', 
       'smpityarsi.media@gmail.com', 
       'smpityarsimataram.sch.id',
       'YAYASAN RUMAH SAKIT ISLAM NUSA TENGGARA BARAT',
@@ -102,7 +102,7 @@ function getPengaturanRaport() {
     Nama_Kepala_Sekolah: 'Raihan, S.S., M.Hum., Gr',
     NIY: '002.08.23',
     Tanggal_Raport: 'Mataram, 28 September 2026',
-    Alamat_Sekolah: 'Jl. TGH. Muh. Rais, Lingkar Selatan – Mataram',
+    Alamat_Sekolah: 'Jl. TGH. Muh. Rais, Lingkar Selatan â€“ Mataram',
     Email_Sekolah: 'smpityarsi.media@gmail.com',
     Website_Sekolah: 'smpityarsimataram.sch.id',
     Nama_Yayasan: 'YAYASAN RUMAH SAKIT ISLAM NUSA TENGGARA BARAT',
@@ -969,7 +969,7 @@ function getRaportSiswaLengkap(identifier) {
       const nama = String(m.Nama_Mapel || '').toLowerCase().trim();
       const kode = String(m.Kode_Mapel || '').toLowerCase().trim();
       
-      const isQuran = nama.includes('quran') || nama.includes('qur\'an') || nama.includes('qur’an') || nama.includes('hadist') || nama.includes('hadits') || kode.includes('quran') || kode.includes('hadist');
+      const isQuran = nama.includes('quran') || nama.includes('qur\'an') || nama.includes('qurâ€™an') || nama.includes('hadist') || nama.includes('hadits') || kode.includes('quran') || kode.includes('hadist');
       const isLughoh = nama.includes('lughoh') || nama.includes('lughah') || nama.includes('shobahul') || kode.includes('lughoh') || kode.includes('sl');
       
       return !isQuran && !isLughoh;
@@ -1016,3 +1016,23 @@ function getRaportSiswaLengkap(identifier) {
     urlTtWalas: urlWalasData.Direct_Url || convertDriveUrlToDirect(urlWalasData.Url_Tanda_Tangan) || ''
   };
 }
+
+// Masukkan URL Raw GitHub yang sudah Anda salin ke dalam variabel ini
+const rawUrl = "https://raw.githubusercontent.com/affanyasir726/smartsmpityarsimataram.github.io/refs/heads/main/FINAL%20RAPORT%20SMART%20-%20Sheet1.csv";
+
+// Memanggil data menggunakan fetch
+fetch(rawUrl)
+  .then(response => {
+    // Memastikan respons berhasil (status 200)
+    if (!response.ok) {
+      throw new Error("Gagal mengambil data dari GitHub");
+    }
+    return response.json(); // Ubah respons menjadi format JSON
+  })
+  .then(data => {
+    console.log("Data berhasil dimuat:", data);
+    // Tulis logika aplikasi Anda di sini untuk menampilkan data ke halaman web
+  })
+  .catch(error => {
+    console.error("Terjadi kesalahan:", error);
+  });
