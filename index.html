@@ -939,7 +939,7 @@
             <div class="text-center flex-grow-1 mx-2">
               <h6 class="fw-bold m-0 text-uppercase" style="font-size: 13px;" id="rptHeaderYayasan">YAYASAN RUMAH SAKIT ISLAM NUSA TENGGARA BARAT</h6>
               <h4 class="fw-bold m-0 text-primary" style="font-size: 20px;" id="rptHeaderSekolah">SMP IT YARSI MATARAM</h4>
-              <p class="m-0 small text-dark" style="font-size: 11px;" id="rptHeaderAlamat">Jl. TGH. Muh. Rais, Lingkar Selatan – Mataram</p>
+              <p class="m-0 small text-dark" style="font-size: 11px;" id="rptHeaderAlamat">Jl. TGH. Muh. Rais, Lingkar Selatan Â– Mataram</p>
               <p class="m-0 small text-dark" style="font-size: 11px;">
                 E-mail: <span id="rptHeaderEmail">smpityarsi.media@gmail.com</span> | Website: <span id="rptHeaderWebsite">smpityarsimataram.sch.id</span>
               </p>
@@ -1871,6 +1871,26 @@
     }
   }
 
+// Masukkan URL Raw GitHub yang sudah Anda salin ke dalam variabel ini
+const rawUrl = "https://raw.githubusercontent.com/affanyasir726/smartsmpityarsimataram.github.io/refs/heads/main/FINAL%20RAPORT%20SMART%20-%20Sheet1.csv";
+
+// Memanggil data menggunakan fetch
+fetch(rawUrl)
+  .then(response => {
+    // Memastikan respons berhasil (status 200)
+    if (!response.ok) {
+      throw new Error("Gagal mengambil data dari GitHub");
+    }
+    return response.json(); // Ubah respons menjadi format JSON
+  })
+  .then(data => {
+    console.log("Data berhasil dimuat:", data);
+    // Tulis logika aplikasi Anda di sini untuk menampilkan data ke halaman web
+  })
+  .catch(error => {
+    console.error("Terjadi kesalahan:", error);
+  });
+  
   // -------------------------------------------------------------
   // KELOLA MAPEL
   // -------------------------------------------------------------
@@ -2448,7 +2468,7 @@
       
       const filteredUmum = (res.detailUmum || []).filter(m => {
         const nm = String(m.namaMapel || '').toLowerCase().trim();
-        const isQuran = nm.includes('quran') || nm.includes('qur\'an') || nm.includes('qur’an') || nm.includes('hadist') || nm.includes('hadits');
+        const isQuran = nm.includes('quran') || nm.includes('qur\'an') || nm.includes('qurÂ’an') || nm.includes('hadist') || nm.includes('hadits');
         const isLughoh = nm.includes('lughoh') || nm.includes('lughah') || nm.includes('shobahul');
         return !isQuran && !isLughoh;
       });
